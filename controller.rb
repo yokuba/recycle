@@ -27,10 +27,11 @@ class Controller
     type = @view.input
     array << type.capitalize
 
-    # Parser.query(array)
+    list = Parser.load_data
+    @view.display(list)
 
 
-    list = Parser.query(array)
+    # list = Parser.query(array)
 
   #   @view.diplay(list)
   #   # search_statement = '$where' + input
@@ -38,12 +39,13 @@ class Controller
 
 
 
-  # end
+  end
 
-  # def to_s
+   def to_s
+    # "There are #{list.length} sites in that area. Here is a list:"
+
     list.each do |item|
-     puts "There are #{list.length} sites in that area. Here is a list:
-      \n #{item} + \n"
+      " #{item} "
     end
   end
 end

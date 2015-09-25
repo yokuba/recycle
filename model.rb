@@ -7,11 +7,9 @@ module Parser
 
   def self.load_data
     file = open("https://data.cityofnewyork.us/resource/sxx4-xhzg.json?")
-
     file.each do |item|
     RecyclingBin.new(item)
-    # data = file.read
-
+    end
   end
 
 
@@ -19,8 +17,5 @@ module Parser
     answer = open("https://data.cityofnewyork.us/api/views/sxx4-xhzg/rows.json?$borough=#{search[0]}+site_type= #{search[1]}")
   end
 end
-
-final_data = Parser.load_data
-p final_data
 
 
