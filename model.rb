@@ -1,12 +1,18 @@
 require 'open-uri'
 require 'json'
 
+require_relative 'recycling_bin'
+
 module Parser
-#define method to get the date from the website.
-  # def self.load_data
-  #   file = open("https://data.cityofnewyork.us/resource/sxx4-xhzg.json?borough=brooklyn")
-  #   data = file.read
-  # end
+
+  def self.load_data
+    file = open("https://data.cityofnewyork.us/resource/sxx4-xhzg.json?")
+
+    file.each do |item|
+    RecyclingBin.new(item)
+    # data = file.read
+
+  end
 
 
   def self.query(search)
@@ -14,7 +20,7 @@ module Parser
   end
 end
 
-# final_data = Parser.load_data
-# p final_data
+final_data = Parser.load_data
+p final_data
 
 
