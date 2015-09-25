@@ -8,7 +8,7 @@ simply enter your borough and destination information. For example, if I am head
 
 We filtered the data using Open URI and JSON to get this (eek!):
 
-![](unformatted.png)
+![](unformatted_data.png)
 ***
 We then filtered the data through ruby, to then present a simple command-line interface that narrows down locations of recycling bins. This make the data more user-friendly, and encourages recycling!
 ***
