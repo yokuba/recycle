@@ -12,4 +12,9 @@ class RecyclingBin
     @longitude = args[:longitude]
   end
 
+  def to_s
+
+
+  end
+
 end
