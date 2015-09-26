@@ -20,14 +20,12 @@ class View
     puts "Enter the park name (if known); otherwise, hit 'enter':"
   end
 
-  def list_of_sites
-    puts "These are the list of sites near you. Where would you like to recycle?"
-    #display all sites
+  def list_of_sites(list)
+    puts "Listed above are the #{list.size} sites in your borough. Where would you like to recycle?"
   end
 
   def addresses_at_site(site)
-    puts "There are #{site.count} recycling bins at this site at #{site}"
-    # display all address
+    puts "There is a recycling bins at this at #{site}"
   end
 
   def display(bin)

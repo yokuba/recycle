@@ -11,7 +11,7 @@ module Parser
     file = open("https://data.cityofnewyork.us/resource/sxx4-xhzg.json?").read
     parsed = JSON.parse(file)
     parsed.each do |bin|
-       data << RecyclingBin.new(bin)
+       data << bin
     end
   end
 end

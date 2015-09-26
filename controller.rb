@@ -22,6 +22,7 @@ class Controller
     list = Parser.load_data
     @view.display(list.select!{|bin|
       bin["borough"] == borough.capitalize})
+    @view.list_of_sites(list)
 
     @view.enter_site_type
     type = @view.input.capitalize
@@ -32,11 +33,8 @@ class Controller
       park = @view.input
       list.select!{|bin|
         bin["park_site_name"] == park}
-      list.each{|bin| @view.display(bin["address"])}
+      list.each{|bin| @view.addresses_at_site(bin["address"])}
   end
-    def to_s
-    "There are #{list.size} sites in that area. Here is a list: \n"
-    end
 end
 
 
