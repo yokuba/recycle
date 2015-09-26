@@ -25,7 +25,7 @@ class View
   end
 
   def addresses_at_site(site)
-    puts "There is a recycling bins at this at #{site}"
+    puts "There is a recycling bins at #{site}"
   end
 
   def display(bin)
