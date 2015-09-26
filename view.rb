@@ -29,7 +29,7 @@ class View
     puts "\n\nThere are #{list.size} sites. They are:\n\n"
     thing = list.uniq
     thing.each do |site|
-     puts "#{site}"
+    puts "#{site}"
    end
  end
 

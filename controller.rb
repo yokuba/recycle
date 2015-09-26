@@ -21,7 +21,7 @@ class Controller
       abort("Thanks for NOT recycling... jerk.")
     end
     list = Parser.load_data
-    list.select!{|bin| bin["borough"] == borough.capitalize}
+    list.select!{|bin| bin["borough"] == borough}
     @view.list_of_sites(list)
 
     @view.enter_site_type
