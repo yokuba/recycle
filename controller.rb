@@ -13,6 +13,7 @@ class Controller
   end
 
   def run
+    sites = []
     @view.welcome
     @view.enter_boroughs
     borough = @view.input
@@ -20,14 +21,16 @@ class Controller
       abort("Thanks for NOT recycling... jerk.")
     end
     list = Parser.load_data
-    @view.display(list.select!{|bin|
-      bin["borough"] == borough.capitalize})
+    list.select!{|bin| bin["borough"] == borough.capitalize}
     @view.list_of_sites(list)
 
     @view.enter_site_type
     type = @view.input.capitalize
-    @view.display(list.select!{|bin|
-      bin["site_type"] == type})
+    list.select!{|bin|
+      bin["site_type"] == type}
+
+    list.select!{|bin| sites << (bin["park_site_name"])}
+    @view.display_parks(sites)
 
       @view.enter_park_site_name
       park = @view.input

@@ -2,8 +2,6 @@ require 'open-uri'
 require 'rubygems'
 require 'json'
 
-require_relative 'recycling_bin'
-
 module Parser
 
   def self.load_data
