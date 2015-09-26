@@ -9,21 +9,19 @@ class Controller
 
   def initialize
     @view = View.new
-    # @model = Model.new
     @list = {}
   end
 
   def run
-
     @view.welcome
     @view.enter_boroughs
-    borough = @view.input.capitalize
+    borough = @view.input
     if borough == "exit"
       abort("Thanks for NOT recycling... jerk.")
     end
     list = Parser.load_data
     @view.display(list.select!{|bin|
-      bin["borough"] == borough})
+      bin["borough"] == borough.capitalize})
 
     @view.enter_site_type
     type = @view.input.capitalize
@@ -35,7 +33,6 @@ class Controller
       list.select!{|bin|
         bin["park_site_name"] == park}
       list.each{|bin| @view.display(bin["address"])}
-
   end
     def to_s
     "There are #{list.size} sites in that area. Here is a list: \n"
