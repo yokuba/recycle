@@ -16,6 +16,10 @@ class View
     puts "Enter a site type, e.g. 'greenthumb', 'outdoor', 'indoor', 'subproperty':"
   end
 
+  def enter_park_site_name
+    puts "Enter the park name (if known); otherwise, hit 'enter':"
+  end
+
   def list_of_sites
     puts "These are the list of sites near you. Where would you like to recycle?"
     #display all sites
@@ -26,8 +30,8 @@ class View
     # display all address
   end
 
-  def display(results)
-    puts results
+  def display(bin)
+    puts bin
   end
 
 end

@@ -10,44 +10,36 @@ class Controller
   def initialize
     @view = View.new
     # @model = Model.new
-    @array = []
-    @list = nil
+    @list = {}
   end
 
   def run
 
     @view.welcome
     @view.enter_boroughs
-    borough = @view.input
+    borough = @view.input.capitalize
     if borough == "exit"
       abort("Thanks for NOT recycling... jerk.")
     end
-    array << borough
-    @view.enter_site_type
-    type = @view.input
-    array << type.capitalize
-
     list = Parser.load_data
-    @view.display(list)
+    @view.display(list.select!{|bin|
+      bin["borough"] == borough})
 
+    @view.enter_site_type
+    type = @view.input.capitalize
+    @view.display(list.select!{|bin|
+      bin["site_type"] == type})
 
-    # list = Parser.query(array)
-
-  #   @view.diplay(list)
-  #   # search_statement = '$where' + input
-  #   # query(query_array)
-
-
+      @view.enter_park_site_name
+      park = @view.input
+      list.select!{|bin|
+        bin["park_site_name"] == park}
+      list.each{|bin| @view.display(bin["address"])}
 
   end
-
-   def to_s
-    # "There are #{list.length} sites in that area. Here is a list:"
-
-    list.each do |item|
-      " #{item} "
+    def to_s
+    "There are #{list.size} sites in that area. Here is a list: \n"
     end
-  end
 end
 
 

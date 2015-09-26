@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'rubygems'
 require 'json'
 
 require_relative 'recycling_bin'
@@ -6,10 +7,23 @@ require_relative 'recycling_bin'
 module Parser
 
   def self.load_data
-    file = open("https://data.cityofnewyork.us/resource/sxx4-xhzg.json?")
-    file.each do |item|
-    RecyclingBin.new(item)
-    end
+    data = []
+    file = open("https://data.cityofnewyork.us/resource/sxx4-xhzg.json?").read
+    parsed = JSON.parse(file)
+    parsed.each do |bin|
+       data << RecyclingBin.new(bin)
+    # Read JSON from a file, iterate over objects
+# file = open("shops.json")
+# json = file.read
+
+# parsed = JSON.parse(json)
+
+# parsed["shop"].each do |shop|
+#   p shop["id"]
+end
+
+      # p data << RecyclingBin.new(thing)
+
   end
 
 
