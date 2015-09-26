@@ -21,7 +21,7 @@ class View
   end
 
   def list_of_sites(list)
-    puts "Listed above are the #{list.size} sites in your borough. Where would you like to recycle?"
+    puts "\n \n \n Listed above are the #{list.size} sites in your borough. Where would you like to recycle?"
   end
 
   def addresses_at_site(site)
